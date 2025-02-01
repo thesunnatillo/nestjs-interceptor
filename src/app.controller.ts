@@ -6,8 +6,8 @@ import { LoggingInterceptor } from "./interceptors/logging.interceptor";
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  @UseInterceptors(LoggingInterceptor)
+  @Get('hi')
+  @UseInterceptors(LoggingInterceptor) // Endpoint daraja
   getHello(): object {
     return this.appService.getHello();
   }

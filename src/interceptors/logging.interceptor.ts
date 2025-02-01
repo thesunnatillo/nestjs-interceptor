@@ -9,14 +9,13 @@ export class LoggingInterceptor implements NestInterceptor {
     next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
     const start = Date.now();
+
     console.log(
-      "So'rov kelib tuhshdi: ",
+      "So'rov kelib tushdi: ",
       context.switchToHttp().getRequest().url,
     );
 
-    return next
-      .handle()
-      .pipe(
+    return next.handle().pipe(
         tap(() =>
           console.log(`Javob yuborildi, vaqt: ${Date.now() - start}ms`),
         ),
